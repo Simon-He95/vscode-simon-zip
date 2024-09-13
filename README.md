@@ -1,9 +1,9 @@
 <p align="center">
-<img height="200" src="./assets/kv.png" alt="vscode starter">
+<img height="200" src="./icon.png" alt="vscode starter">
 </p>
 <p align="center"> English | <a href="./README_zh.md">简体中文</a></p>
 
-vscode-starter is a template for quickly creating a vscode plug-in project. It can help you quickly create a vscode plug-in project, allowing you to focus on plug-in development.
+Quickly compress files in vscode. Because mac cannot directly operate compression in vscode, it needs console or open Finder and then choose compression, which is troublesome, so I wrote this plugin.
 
 ## Installation
 

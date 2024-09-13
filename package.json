@@ -45,7 +45,7 @@
       "explorer/context": [
         {
           "submenu": "zip",
-          "group": "6_px"
+          "group": "5_custom"
         }
       ],
       "zip": [
@@ -54,7 +54,7 @@
           "when": "sideBarFocus && (resourceExtname || resourceDirname)"
         },
         {
-          "command": "zip.7zip",
+          "command": "zip.tar",
           "when": "sideBarFocus && (resourceExtname || resourceDirname)"
         },
         {
@@ -73,8 +73,8 @@
         "title": "zip"
       },
       {
-        "command": "zip.7zip",
-        "title": "7zip"
+        "command": "zip.tar",
+        "title": "tar"
       },
       {
         "command": "zip.rar",
@@ -98,12 +98,16 @@
     "release": "nr build --minify && bumpp && nr publish"
   },
   "devDependencies": {
+    "7zip": "^0.0.6",
+    "7zip-min": "^1.4.5",
     "@antfu/eslint-config": "^3.5.1",
     "@types/node": "^18.19.50",
     "@types/vscode": "^1.93.0",
     "@vscode-use/utils": "0.1.18",
     "@vscode/vsce": "^3.1.0",
+    "adm-zip": "^0.5.16",
     "bumpp": "^9.5.2",
+    "compressing": "^1.10.1",
     "eslint": "^9.10.0",
     "lazy-js-utils": "^0.1.0",
     "tsup": "^8.2.4",
