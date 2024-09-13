@@ -1,0 +1,113 @@
+{
+  "publisher": "simonhe",
+  "name": "vscode-simon-zip",
+  "displayName": "vscode-simon-zip",
+  "version": "0.0.0",
+  "description": "vscode-simon-zip",
+  "author": "Simon He <https://github.com/Simon-He95>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/Simon-He95",
+  "homepage": "https://github.com/Simon-He95/vscode-simon-zip#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Simon-He95/vscode-simon-zip"
+  },
+  "bugs": {
+    "url": "https://github.com/Simon-He95/vscode-simon-zip/issues"
+  },
+  "sponsor": {
+    "url": "https://github.com/Simon-He95/sponsor"
+  },
+  "keywords": [
+    "vscode",
+    "vscode-use",
+    "vscode-template"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/index.js",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "submenus": [
+      {
+        "id": "zip",
+        "label": "simon-zip"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "submenu": "zip",
+          "group": "6_px"
+        }
+      ],
+      "zip": [
+        {
+          "command": "zip.zip",
+          "when": "sideBarFocus && (resourceExtname || resourceDirname)"
+        },
+        {
+          "command": "zip.7zip",
+          "when": "sideBarFocus && (resourceExtname || resourceDirname)"
+        },
+        {
+          "command": "zip.rar",
+          "when": "sideBarFocus && (resourceExtname || resourceDirname)"
+        },
+        {
+          "command": "zip.gzip",
+          "when": "sideBarFocus && (resourceExtname || resourceDirname)"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "zip.zip",
+        "title": "zip"
+      },
+      {
+        "command": "zip.7zip",
+        "title": "7zip"
+      },
+      {
+        "command": "zip.rar",
+        "title": "rar"
+      },
+      {
+        "command": "zip.gzip",
+        "title": "gzip"
+      }
+    ]
+  },
+  "scripts": {
+    "dev": "tsup src/index.ts --external vscode --watch",
+    "test": "vitest",
+    "build": "tsup src/index.ts --external vscode --minify",
+    "pack": "vsce package --no-dependencies",
+    "lint": "eslint . --cache",
+    "lint:fix": "nr lint --fix",
+    "publish": "vsce publish --no-dependencies",
+    "typecheck": "tsc --noEmit",
+    "release": "nr build --minify && bumpp && nr publish"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^3.5.1",
+    "@types/node": "^18.19.50",
+    "@types/vscode": "^1.93.0",
+    "@vscode-use/utils": "0.1.18",
+    "@vscode/vsce": "^3.1.0",
+    "bumpp": "^9.5.2",
+    "eslint": "^9.10.0",
+    "lazy-js-utils": "^0.1.0",
+    "tsup": "^8.2.4",
+    "typescript": "^5.6.2",
+    "vitest": "^2.0.5"
+  }
+}
