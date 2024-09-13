@@ -3,7 +3,7 @@
 </p>
 <p align="center"> <a href="./README.md">English</a> | 简体中文</p>
 
-在 vscode 中快速压缩文件，因为 mac 不能直接在 vscode 中操作压缩，需要控制台或者打开 Finder 再选择压缩，比较麻烦，才写了这个插件.
+在 vscode 中快速压缩文件，因为 Mac 不能直接在 vscode 中操作压缩，需要控制台或者打开 Finder 再选择压缩，比较麻烦，才写了这个插件.
 
 ## Demo
 ![demo](./assets/demo.gif)
