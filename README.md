@@ -5,6 +5,9 @@
 
 Quickly compress files in vscode. Because mac cannot directly operate compression in vscode, it needs console or open Finder and then choose compression, which is troublesome, so I wrote this plugin.
 
+## Demo
+![demo](./assets/demo.gif)
+
 ## Installation
 
 - [@vscode-use/utils](https://github.com/vscode-use/utils)
