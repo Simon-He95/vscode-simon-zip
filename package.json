@@ -2,7 +2,7 @@
   "publisher": "simonhe",
   "name": "vscode-simon-zip",
   "displayName": "vscode-simon-zip",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "vscode-simon-zip",
   "author": "Simon He <https://github.com/Simon-He95>",
   "license": "MIT",
@@ -95,7 +95,7 @@
     "lint:fix": "nr lint --fix",
     "publish": "vsce publish --no-dependencies",
     "typecheck": "tsc --noEmit",
-    "release": "nr build --minify && bumpp && nr publish"
+    "release": "nr build && bumpp && nr publish"
   },
   "devDependencies": {
     "7zip": "^0.0.6",
