@@ -8,12 +8,6 @@ importers:
 
   .:
     devDependencies:
-      7zip:
-        specifier: ^0.0.6
-        version: 0.0.6
-      7zip-min:
-        specifier: ^1.4.5
-        version: 1.4.5
       '@antfu/eslint-config':
         specifier: ^3.5.1
         version: 3.5.1(@typescript-eslint/utils@8.5.0(eslint@9.10.0(jiti@1.21.6))(typescript@5.6.2))(@vue/compiler-sfc@3.4.21)(eslint@9.10.0(jiti@1.21.6))(typescript@5.6.2)(vitest@2.0.5(@types/node@18.19.50))
@@ -24,8 +18,8 @@ importers:
         specifier: ^1.93.0
         version: 1.93.0
       '@vscode-use/utils':
-        specifier: 0.1.18
-        version: 0.1.18
+        specifier: 0.1.29
+        version: 0.1.29
       '@vscode/vsce':
         specifier: ^3.1.0
         version: 3.1.0
@@ -55,16 +49,6 @@ importers:
         version: 2.0.5(@types/node@18.19.50)
 
 packages:
-
-  7zip-bin@5.1.1:
-    resolution: {integrity: sha512-sAP4LldeWNz0lNzmTird3uWfFDWWTeg6V/MsmyyLR9X1idwKBWIgt/ZvinqQldJm3LecKEs1emkbquO6PCiLVQ==}
-
-  7zip-min@1.4.5:
-    resolution: {integrity: sha512-S+FzNwJFKF5LgQYs+hPQo+qeffdi+259Ak63rWEfkHP9arsU8gbe5K+4HscuWN1ih1lP1gTjDNPddbU0qhPtHQ==}
-
-  7zip@0.0.6:
-    resolution: {integrity: sha512-ns8vKbKhIQm338AeWo/YdDSWil3pldwCMoyR2npoM2qDAzF8Vuko8BtDxpNt/wE15SXOh5K5WbjSLR4kTOAHLA==}
-    hasBin: true
 
   '@aashutoshrathi/word-wrap@1.2.6':
     resolution: {integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==}
@@ -796,9 +780,9 @@ packages:
   '@vitest/utils@2.0.5':
     resolution: {integrity: sha512-d8HKbqIcya+GR67mkZbrzhS5kKhtp8dQLcmRZLGTscGVg7yImT82cIrhtn2L8+VujWcy6KZweApgNmPsTAO/UQ==}
 
-  '@vscode-use/utils@0.1.18':
-    resolution: {integrity: sha512-rVCEk8b8znwI182TIyU3CdaR170o2KtQhUxVDdZAJdZ0XtgB4RnijjMjfiY7YiOEwjL/buQKIqHWsgg16E8vCA==}
-    engines: {vscode: ^1.91.0}
+  '@vscode-use/utils@0.1.29':
+    resolution: {integrity: sha512-FtjQC8c/pv537iJZUv9A4woyPrWfpilkSHmkMmhNpBzEqAqKIwBBKu2IRHT16J/Kcp8dHAJNoJkhq/J1+DndLA==}
+    engines: {vscode: ^1.92.0}
 
   '@vscode/vsce-sign-alpine-arm64@2.0.2':
     resolution: {integrity: sha512-E80YvqhtZCLUv3YAf9+tIbbqoinWLCO/B3j03yQPbjT3ZIHCliKZlsy1peNc4XNZ5uIb87Jn0HWx/ZbPXviuAQ==}
@@ -3127,14 +3111,6 @@ packages:
 
 snapshots:
 
-  7zip-bin@5.1.1: {}
-
-  7zip-min@1.4.5:
-    dependencies:
-      7zip-bin: 5.1.1
-
-  7zip@0.0.6: {}
-
   '@aashutoshrathi/word-wrap@1.2.6': {}
 
   '@ampproject/remapping@2.3.0':
@@ -3777,7 +3753,7 @@ snapshots:
       loupe: 3.1.1
       tinyrainbow: 1.2.0
 
-  '@vscode-use/utils@0.1.18': {}
+  '@vscode-use/utils@0.1.29': {}
 
   '@vscode/vsce-sign-alpine-arm64@2.0.2':
     optional: true

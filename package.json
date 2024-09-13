@@ -98,12 +98,10 @@
     "release": "nr build && bumpp && nr publish"
   },
   "devDependencies": {
-    "7zip": "^0.0.6",
-    "7zip-min": "^1.4.5",
     "@antfu/eslint-config": "^3.5.1",
     "@types/node": "^18.19.50",
     "@types/vscode": "^1.93.0",
-    "@vscode-use/utils": "0.1.18",
+    "@vscode-use/utils": "0.1.29",
     "@vscode/vsce": "^3.1.0",
     "adm-zip": "^0.5.16",
     "bumpp": "^9.5.2",
