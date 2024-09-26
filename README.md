@@ -1,11 +1,12 @@
 <p align="center">
-<img height="200" src="./icon.png" alt="vscode starter">
+<img height="200" src="./icon.png" alt="vscode-simon-zip">
 </p>
 <p align="center"> English | <a href="./README_zh.md">简体中文</a></p>
 
 Quickly compress files in vscode. Because Mac cannot directly operate compression in vscode, it needs console or open Finder and then choose compression, which is troublesome, so I wrote this plugin.
 
 ## Demo
+
 ![demo](./assets/demo.gif)
 
 ## Installation
