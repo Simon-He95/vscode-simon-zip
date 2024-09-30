@@ -2,7 +2,7 @@
   "publisher": "simonhe",
   "name": "vscode-simon-zip",
   "displayName": "Simon's File Compression Tools",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "轻松压缩和解压文件：支持 ZIP、TAR、RAR 和 GZIP 格式。在 VSCode 中直接操作文件和文件夹。",
   "author": "Simon He <https://github.com/Simon-He95>",
   "license": "MIT",
