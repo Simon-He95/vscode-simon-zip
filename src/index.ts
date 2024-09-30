@@ -8,7 +8,11 @@ export = createExtension(() => {
   const AdmZip = require('adm-zip')
   const compressing = require('compressing')
   // 根据当前语言
-  const isZh = getActiveTextEditorLanguageId()!.includes('zh')
+  const languageId = getActiveTextEditorLanguageId()
+  if (!languageId)
+    return
+  
+  const isZh = languageId.includes('zh')
   let resolver: (value?: string) => void
   let rejecter: (reason: string) => void
   const title = isZh ? '压缩中' : 'Compressing'
