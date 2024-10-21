@@ -38,7 +38,7 @@
   "main": "./dist/index.js",
   "icon": "icon.png",
   "engines": {
-    "vscode": "^1.93.0"
+    "vscode": "^1.94.0"
   },
   "activationEvents": [
     "onStartupFinished"
@@ -60,23 +60,39 @@
       "zip": [
         {
           "command": "zip.zip",
-          "when": "sideBarFocus && (resourceExtname || resourceDirname)"
+          "when": "sideBarFocus && resourceDirname && resourceExtname !== '.zip' && resourceExtname !== '.tar' && resourceExtname !== '.rar' && resourceExtname !== '.gz'"
         },
         {
           "command": "zip.tar",
-          "when": "sideBarFocus && (resourceExtname || resourceDirname)"
+          "when": "sideBarFocus && resourceDirname && resourceExtname !== '.tar' && resourceExtname !== '.zip' && resourceExtname !== '.rar' && resourceExtname !== '.gz'"
         },
         {
           "command": "zip.rar",
-          "when": "sideBarFocus && (resourceExtname || resourceDirname)"
+          "when": "sideBarFocus && resourceDirname && resourceExtname !== '.rar' && resourceExtname !== '.zip' && resourceExtname !== '.tar' && resourceExtname !== '.gz'"
         },
         {
           "command": "zip.gzip",
-          "when": "sideBarFocus && (resourceExtname || resourceDirname)"
+          "when": "sideBarFocus && resourceDirname && resourceExtname !== '.gz' && resourceExtname !== '.zip' && resourceExtname !== '.tar' && resourceExtname !== '.rar'"
         },
         {
           "command": "zip.copy",
           "when": "sideBarFocus && (resourceExtname || resourceDirname)"
+        },
+        {
+          "command": "zip.unzip",
+          "when": "sideBarFocus && resourceExtname === '.zip'"
+        },
+        {
+          "command": "zip.untar",
+          "when": "sideBarFocus && resourceExtname === '.tar'"
+        },
+        {
+          "command": "zip.unrar",
+          "when": "sideBarFocus && resourceExtname === '.rar'"
+        },
+        {
+          "command": "zip.ungzip",
+          "when": "sideBarFocus && resourceExtname === '.gz'"
         }
       ]
     },
@@ -100,6 +116,22 @@
       {
         "command": "zip.copy",
         "title": "copy"
+      },
+      {
+        "command": "zip.unzip",
+        "title": "unzip"
+      },
+      {
+        "command": "zip.untar",
+        "title": "untar"
+      },
+      {
+        "command": "zip.unrar",
+        "title": "unrar"
+      },
+      {
+        "command": "zip.ungzip",
+        "title": "ungzip"
       }
     ]
   },
@@ -115,18 +147,18 @@
     "release": "nr build && bumpp && nr publish"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^3.7.2",
-    "@types/node": "^18.19.53",
-    "@types/vscode": "^1.93.0",
+    "@antfu/eslint-config": "^3.8.0",
+    "@types/node": "^18.19.57",
+    "@types/vscode": "^1.94.0",
     "@vscode-use/utils": "0.1.29",
-    "@vscode/vsce": "^3.1.0",
+    "@vscode/vsce": "^3.2.0",
     "adm-zip": "^0.5.16",
-    "bumpp": "^9.5.2",
+    "bumpp": "^9.7.1",
     "compressing": "^1.10.1",
-    "eslint": "^9.11.1",
-    "lazy-js-utils": "^0.1.0",
+    "eslint": "^9.13.0",
+    "lazy-js-utils": "^0.1.2",
     "tsup": "^8.3.0",
-    "typescript": "^5.6.2",
-    "vitest": "^2.1.1"
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.3"
   }
 }

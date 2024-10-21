@@ -1,7 +1,7 @@
 import { existsSync } from 'node:fs'
 import path from 'node:path'
 import { createExtension, createFakeProgress, createLog, createSelect, getActiveTextEditorLanguageId, message, registerCommand } from '@vscode-use/utils'
-import { isWin, jsShell } from 'lazy-js-utils'
+import { isFile, isWin, jsShell } from 'lazy-js-utils'
 
 const logger = createLog('simon-zip')
 export = createExtension(() => {
@@ -11,7 +11,7 @@ export = createExtension(() => {
   const languageId = getActiveTextEditorLanguageId()
   if (!languageId)
     return
-  
+
   const isZh = languageId.includes('zh')
   let resolver: (value?: string) => void
   let rejecter: (reason: string) => void
@@ -107,7 +107,13 @@ export = createExtension(() => {
           },
         })
         const zip = new AdmZip()
-        zip.addLocalFolder(url)
+        // 判断 url 是 directory 还是 file
+        if (isFile(url)) {
+          zip.addLocalFile(url)
+        }
+        else {
+          zip.addLocalFolder(url)
+        }
         try {
           await zip.writeZipPromise(output)
           resolver()
@@ -118,6 +124,89 @@ export = createExtension(() => {
         }
         copyWithMessage(output, isZh)
       }
+    }),
+    registerCommand('zip.unzip', async (e) => {
+      const url = e.fsPath
+      const output = path.resolve(url, '..')
+      createFakeProgress({
+        title,
+        message: v => isZh ? `已解压 ${v}%，请稍等...` : `Unzipped ${v}%, please wait...`,
+        callback(resolve, reject) {
+          resolver = resolve
+          rejecter = reject
+        },
+      })
+      compressing.zip.uncompress(url, output)
+        .then(() => {
+          resolver()
+          message.info('Unzipped successfully 🎉')
+        })
+        .catch((err: Error) => {
+          rejecter(err.message)
+        })
+    }),
+    registerCommand('zip.untar', async (e) => {
+      const url = e.fsPath
+      const output = path.resolve(url, '..')
+      createFakeProgress({
+        title,
+        message: v => isZh ? `已解压 ${v}%，请稍等...` : `Unzipped ${v}%, please wait...`,
+        callback(resolve, reject) {
+          resolver = resolve
+          rejecter = reject
+        },
+      })
+      compressing.tar.uncompress(url, output)
+        .then(() => {
+          resolver()
+          message.info('Unzipped successfully 🎉')
+        })
+        .catch((err: Error) => {
+          rejecter(err.message)
+        })
+    }),
+    registerCommand('zip.ungzip', async (e) => {
+      const url = e.fsPath
+      const output = path.resolve(url, '..')
+      createFakeProgress({
+        title,
+        message: v => isZh ? `已解压 ${v}%，请稍等...` : `Unzipped ${v}%, please wait...`,
+        callback(resolve, reject) {
+          resolver = resolve
+          rejecter = reject
+        },
+      })
+      compressing.tgz.uncompress(url, output)
+        .then(() => {
+          resolver()
+          message.info('Unzipped successfully 🎉')
+        })
+        .catch((err: Error) => {
+          rejecter(err.message)
+        })
+    }),
+    registerCommand('zip.unrar', async (e) => {
+      const url = e.fsPath
+      const output = path.resolve(url, '..')
+      createFakeProgress({
+        title,
+        message: v => isZh ? `已解压 ${v}%，请稍等...` : `Unzipped ${v}%, please wait...`,
+        callback(resolve, reject) {
+          resolver = resolve
+          rejecter = reject
+        },
+      })
+      const zip = new AdmZip(url)
+      try {
+        await zip.extractAllToAsync(output, true)
+        resolver()
+        message.info('Unzipped successfully 🎉')
+      }
+      catch (error) {
+        rejecter(String(error))
+        return
+      }
+      copyWithMessage(output, isZh)
     }),
   ]
 })
